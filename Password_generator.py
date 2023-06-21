@@ -12,8 +12,7 @@ while passwd_genetion.upper()=="YES":
      else:
         return False
     
-    restrictions = passwd_restrictions()    # If True Generated Password will have special characters
-# Else it will contain only alphanumeric characters 
+    restrictions = passwd_restrictions()     
     special_chr = ["!","@","#","$","%","^","&","*","?"]
     passwd_spchr= []
     rep_value = None
@@ -62,8 +61,6 @@ while passwd_genetion.upper()=="YES":
             num = random.randint(0,9)
         rep= num
         num_chr.append(num)
-    
-# At the end the elements of the list will be put together in a list
 # The elements of the list will  get shuffled randomly and then will be put toogether.
 
     if restrictions is False:
@@ -112,7 +109,7 @@ while passwd_save.upper()=="YES":
         username=input("Enter youR username:")
         query= "INSERT INTO social VALUES('{}','{}','{}','{}','{}')".format(app,email,passwd,username,modify_notif)
         my_cursor.execute(query)
-        # Input for all colums and rows and insertion with date and time taken from system
+        # Input for all columns and rows and insertion with date and time taken from system
     elif table_use==2:
         app=input("Enter App name:")
         email=input("Enter Email id:")
