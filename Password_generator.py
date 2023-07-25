@@ -180,12 +180,11 @@ while data_deletion.upper()=="YES":
     my_cursor.execute("use Password_Storage;")
     table_name=int(input("Select the table name or the type of data you want to delete from:(1 for social,2 for work and others for bank)"))
     if table_name==1:
-      # The app name and username are used as a basis to search for a record and delete it.
       app_name=input("Enter the App you want to delete the data for:") 
       user_name = input("Enter the username(or account name you want to delete for):")
-      query="Delete from social where App_name=%s AND username= %s" # Parameterized query
+      query="Delete from social where App_name=%s AND username= %s" 
       tup1= (app_name,user_name)
-      my_cursor.execute(query,tup1) # The values from the tuple/user input are used as values for the parameters in the query.
+      my_cursor.execute(query,tup1)
     elif table_name==2:
       app_name  = input("Enter the App you want to delete the data for:")
       user_name = input("Enter the username(or account name you want to delete for):")
@@ -193,7 +192,6 @@ while data_deletion.upper()=="YES":
       tup1= (app_name,user_name)
       my_cursor.execute(query,tup1)
     else:
-      # The bank name and Account number are used as a basis to search for a record and delete it.
       Bankname= input("Enter the Bank name:")
       Acc_no = input("Enter the Account number :")
       query="Delete from bank where Bank_name  = %s AND Account_No  = %s"
