@@ -17,7 +17,6 @@ while passwd_genetion.upper()=="YES":
     passwd_spchr= []
     rep_value = None
 # The loop will go through a list of special characters and will select four(4) random special characters 
-# The elements of the the new list will be used in the password generation and will be concatenated later on
 
     if restrictions is True:    
      for sp_chr in range (0,4):
@@ -28,15 +27,15 @@ while passwd_genetion.upper()=="YES":
         passwd_spchr.append(a)
     
     alpha_chr=[]
-# Then the random function will be used to generate 4 random Alphabets: two uppercase and two lowercase
-# The random function will go through a range of particular numbersets to generate a random number 
-# That number will be later on converted into Alphabet on the basis of ASCII Values through chr() function.
+
     if restrictions is True:
      for i in range (0,2):
         upper_chr = chr(random.randrange(65,90))
         lower_chr = chr(random.randrange(97,122))
         alpha_chr.append(upper_chr)
         alpha_chr.append(lower_chr)
+# The random function will go through a range of particular numbersets to generate a random number 
+# That number will be later on converted into Alphabet on the basis of ASCII Values through chr() function.
     else:
      for i in range (0,3):
         upper_chr = chr(random.randrange(65,90))
@@ -137,7 +136,6 @@ while passwd_extract.upper()=="YES":
     # Input is taken from the user to select the table from which he wants to extract the password from.
     table_name = input("Enter the password type you want to extract (Or the table name):")
     if table_name =="social":
-      # The Password is extracted based on the app name and email id.
       app_name= input("Enter the App name:")
       email_id = input("Enter the email id:")
       query = "Select password from social WHERE App_name = %s AND email_id = %s" # Parametrized Query
@@ -158,7 +156,6 @@ while passwd_extract.upper()=="YES":
       for row in records:
          print("The Password is:",row[0])
     else:
-      # The password is extracted based on the Bank name and Account number.
       Bankname= input("Enter the Bank name:")
       Acc_no = input("Enter the Account number :")
       query = "Select password from bank WHERE Bank_name  = %s AND Account_No  = %s"
